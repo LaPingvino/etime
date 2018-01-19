@@ -7090,7 +7090,7 @@ $packages["github.com/lapingvino/etime"] = (function() {
 	Element.prototype.String = function() {
 		var e, x;
 		e = this.$val;
-		return (x = new sliceType(["Fire", "Air", "Water", "Earth"]), ((e < 0 || e >= x.$length) ? ($throwRuntimeError("index out of range"), undefined) : x.$array[x.$offset + e]));
+		return (x = new sliceType(["\xF0\x9F\x94\xA5 Fire", "\xF0\x9F\x8C\xAC Air", "\xF0\x9F\x8C\x8A Water", "\xF0\x9F\x8C\xB1 Earth"]), ((e < 0 || e >= x.$length) ? ($throwRuntimeError("index out of range"), undefined) : x.$array[x.$offset + e]));
 	};
 	$ptrType(Element).prototype.String = function() { return new Element(this.$get()).String(); };
 	Descriptive = function(h) {

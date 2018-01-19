@@ -27,7 +27,7 @@ func (t Time) Element() Element {
 }
 
 func (e Element) String() string {
-	return []string{"Fire", "Air", "Water", "Earth"}[e]
+	return []string{"\U0001f525 Fire", "\U0001f32c Air", "\U0001f30a Water", "\U0001F331 Earth"}[e]
 }
 
 func Descriptive(h string) string {
