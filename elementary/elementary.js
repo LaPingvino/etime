@@ -7073,7 +7073,7 @@ $packages["github.com/lapingvino/etime"] = (function() {
 		_r = $clone(t, Time).Element(); /* */ $s = 1; case 1: if($c) { $c = false; _r = _r.$blk(); } if (_r && _r.$blk !== undefined) { break s; }
 		_r$1 = $clone($clone(t.Time, time.Time).UTC(), time.Time).Add($mul64($mul64(new time.Duration(-1, 4294967290), (new time.Duration(0, _r))), new time.Duration(838, 817405952))); /* */ $s = 2; case 2: if($c) { $c = false; _r$1 = _r$1.$blk(); } if (_r$1 && _r$1.$blk !== undefined) { break s; }
 		time.Time.copy(t.Time, _r$1);
-		_r$2 = $clone(t.Time, time.Time).Format("03:04:05"); /* */ $s = 3; case 3: if($c) { $c = false; _r$2 = _r$2.$blk(); } if (_r$2 && _r$2.$blk !== undefined) { break s; }
+		_r$2 = $clone(t.Time, time.Time).Format("15:04:05"); /* */ $s = 3; case 3: if($c) { $c = false; _r$2 = _r$2.$blk(); } if (_r$2 && _r$2.$blk !== undefined) { break s; }
 		$s = -1; return _r$2;
 		/* */ } return; } if ($f === undefined) { $f = { $blk: Time.ptr.prototype.String }; } $f._r = _r; $f._r$1 = _r$1; $f._r$2 = _r$2; $f.t = t; $f.$s = $s; $f.$r = $r; return $f;
 	};

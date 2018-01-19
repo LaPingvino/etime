@@ -19,7 +19,7 @@ const (
 
 func (t Time) String() string {
 	t.Time = t.Time.UTC().Add(-6*time.Duration(t.Element())*time.Hour)
-	return t.Format("03:04:05")
+	return t.Format("15:04:05")
 }
 
 func (t Time) Element() Element {
