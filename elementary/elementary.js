@@ -7090,7 +7090,7 @@ $packages["github.com/lapingvino/etime"] = (function() {
 	Element.prototype.String = function() {
 		var e, x;
 		e = this.$val;
-		return (x = new sliceType(["Earth", "Water", "Air", "Fire"]), ((e < 0 || e >= x.$length) ? ($throwRuntimeError("index out of range"), undefined) : x.$array[x.$offset + e]));
+		return (x = new sliceType(["Fire", "Air", "Water", "Earth"]), ((e < 0 || e >= x.$length) ? ($throwRuntimeError("index out of range"), undefined) : x.$array[x.$offset + e]));
 	};
 	$ptrType(Element).prototype.String = function() { return new Element(this.$get()).String(); };
 	Descriptive = function(h) {
@@ -13569,7 +13569,7 @@ $packages["github.com/lapingvino/etime/elementary"] = (function() {
 		_r$5 = etime.Descriptive("6"); /* */ $s = 7; case 7: if($c) { $c = false; _r$5 = _r$5.$blk(); } if (_r$5 && _r$5.$blk !== undefined) { break s; }
 		_r$6 = etime.Descriptive("12"); /* */ $s = 8; case 8: if($c) { $c = false; _r$6 = _r$6.$blk(); } if (_r$6 && _r$6.$blk !== undefined) { break s; }
 		_r$7 = etime.Descriptive("18"); /* */ $s = 9; case 9: if($c) { $c = false; _r$7 = _r$7.$blk(); } if (_r$7 && _r$7.$blk !== undefined) { break s; }
-		$r = explain.SetInnerHTML("Earth, Water, Air and Fire are used in a cycle to provide four blocks of six hours each. This time is the same everywhere on earth. It is meant to have the same mental idea of time everywhere in the world without relying on morning/evening etc in one specific location. In your local timezone, midnight is at " + _r$4 + ", morning is at " + _r$5 + ", noon is at " + _r$6 + " and evening is at " + _r$7 + ". Day is given in aUm, after UTC midnight."); /* */ $s = 10; case 10: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		$r = explain.SetInnerHTML("Fire, Air, Water and Earth are used in a cycle to provide four blocks of six hours each. This time is the same everywhere on earth. It is meant to have the same mental idea of time everywhere in the world without relying on morning/evening etc in one specific location. In your local timezone, midnight is at " + _r$4 + ", morning is at " + _r$5 + ", noon is at " + _r$6 + " and evening is at " + _r$7 + ". Day is given in aUm, after UTC midnight."); /* */ $s = 10; case 10: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
 		$s = -1; return;
 		/* */ } return; } if ($f === undefined) { $f = { $blk: main }; } $f._r = _r; $f._r$1 = _r$1; $f._r$2 = _r$2; $f._r$3 = _r$3; $f._r$4 = _r$4; $f._r$5 = _r$5; $f._r$6 = _r$6; $f._r$7 = _r$7; $f.clock = clock; $f.explain = explain; $f.$s = $s; $f.$r = $r; return $f;
 	};

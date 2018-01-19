@@ -11,10 +11,10 @@ type Time struct{
 }
 
 const (
-	EARTH Element = iota
-	WATER
+	FIRE Element = iota
 	AIR
-	FIRE
+	WATER
+	EARTH
 )
 
 func (t Time) String() string {
@@ -27,7 +27,7 @@ func (t Time) Element() Element {
 }
 
 func (e Element) String() string {
-	return []string{"Earth", "Water", "Air", "Fire"}[e]
+	return []string{"Fire", "Air", "Water", "Earth"}[e]
 }
 
 func Descriptive(h string) string {
