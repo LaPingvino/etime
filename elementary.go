@@ -17,13 +17,20 @@ const (
 	EARTH
 )
 
+var World = time.FixedZone("World", 53100) // 18:15 in Tehran time converted to UTC converted to seconds
+
+func (t Time) BaseAdd(d time.Duration) Time {
+
+	t.Time = t.Time.In(World).Add(-d)
+	return t
+}
+
 func (t Time) String() string {
-	t.Time = t.Time.UTC().Add(-6*time.Duration(t.Element())*time.Hour)
-	return t.Format("15:04:05")
+	return t.BaseAdd(6*time.Duration(t.Element())*time.Hour).Format("15:04:05")
 }
 
 func (t Time) Element() Element {
-	return Element(t.Time.UTC().Hour() / 6)
+	return Element(t.BaseAdd(0).Time.Hour() / 6)
 }
 
 func (e Element) String() string {

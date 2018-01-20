@@ -7066,14 +7066,20 @@ $packages["github.com/lapingvino/etime"] = (function() {
 	});
 	sliceType = $sliceType($String);
 	ptrType = $ptrType(time.Location);
+	Time.ptr.prototype.BaseAdd = function(d) {
+		var d, t;
+		t = this;
+		time.Time.copy(t.Time, $clone($clone(t.Time, time.Time).In($pkg.World), time.Time).Add(new time.Duration(-d.$high, -d.$low)));
+		return t;
+	};
+	Time.prototype.BaseAdd = function(d) { return this.$val.BaseAdd(d); };
 	Time.ptr.prototype.String = function() {
 		var _r, _r$1, _r$2, t, $s, $r;
 		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; _r = $f._r; _r$1 = $f._r$1; _r$2 = $f._r$2; t = $f.t; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
 		t = this;
 		_r = $clone(t, Time).Element(); /* */ $s = 1; case 1: if($c) { $c = false; _r = _r.$blk(); } if (_r && _r.$blk !== undefined) { break s; }
-		_r$1 = $clone($clone(t.Time, time.Time).UTC(), time.Time).Add($mul64($mul64(new time.Duration(-1, 4294967290), (new time.Duration(0, _r))), new time.Duration(838, 817405952))); /* */ $s = 2; case 2: if($c) { $c = false; _r$1 = _r$1.$blk(); } if (_r$1 && _r$1.$blk !== undefined) { break s; }
-		time.Time.copy(t.Time, _r$1);
-		_r$2 = $clone(t.Time, time.Time).Format("15:04:05"); /* */ $s = 3; case 3: if($c) { $c = false; _r$2 = _r$2.$blk(); } if (_r$2 && _r$2.$blk !== undefined) { break s; }
+		_r$1 = $clone(t, Time).BaseAdd($mul64($mul64(new time.Duration(0, 6), (new time.Duration(0, _r))), new time.Duration(838, 817405952))); /* */ $s = 2; case 2: if($c) { $c = false; _r$1 = _r$1.$blk(); } if (_r$1 && _r$1.$blk !== undefined) { break s; }
+		_r$2 = $clone(_r$1.Time, time.Time).Format("15:04:05"); /* */ $s = 3; case 3: if($c) { $c = false; _r$2 = _r$2.$blk(); } if (_r$2 && _r$2.$blk !== undefined) { break s; }
 		$s = -1; return _r$2;
 		/* */ } return; } if ($f === undefined) { $f = { $blk: Time.ptr.prototype.String }; } $f._r = _r; $f._r$1 = _r$1; $f._r$2 = _r$2; $f.t = t; $f.$s = $s; $f.$r = $r; return $f;
 	};
@@ -7082,7 +7088,7 @@ $packages["github.com/lapingvino/etime"] = (function() {
 		var _q, _r, t, $s, $r;
 		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; _q = $f._q; _r = $f._r; t = $f.t; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
 		t = this;
-		_r = $clone($clone(t.Time, time.Time).UTC(), time.Time).Hour(); /* */ $s = 1; case 1: if($c) { $c = false; _r = _r.$blk(); } if (_r && _r.$blk !== undefined) { break s; }
+		_r = $clone($clone(t, Time).BaseAdd(new time.Duration(0, 0)).Time, time.Time).Hour(); /* */ $s = 1; case 1: if($c) { $c = false; _r = _r.$blk(); } if (_r && _r.$blk !== undefined) { break s; }
 		$s = -1; return (((_q = _r / 6, (_q === _q && _q !== 1/0 && _q !== -1/0) ? _q >> 0 : $throwRuntimeError("integer divide by zero")) >> 0));
 		/* */ } return; } if ($f === undefined) { $f = { $blk: Time.ptr.prototype.Element }; } $f._q = _q; $f._r = _r; $f.t = t; $f.$s = $s; $f.$r = $r; return $f;
 	};
@@ -7135,12 +7141,13 @@ $packages["github.com/lapingvino/etime"] = (function() {
 	};
 	$pkg.Now = Now;
 	Element.methods = [{prop: "String", name: "String", pkg: "", typ: $funcType([], [$String], false)}];
-	Time.methods = [{prop: "String", name: "String", pkg: "", typ: $funcType([], [$String], false)}, {prop: "Element", name: "Element", pkg: "", typ: $funcType([], [Element], false)}];
+	Time.methods = [{prop: "BaseAdd", name: "BaseAdd", pkg: "", typ: $funcType([time.Duration], [Time], false)}, {prop: "String", name: "String", pkg: "", typ: $funcType([], [$String], false)}, {prop: "Element", name: "Element", pkg: "", typ: $funcType([], [Element], false)}];
 	Time.init("", [{prop: "Time", name: "Time", anonymous: true, exported: true, typ: time.Time, tag: ""}]);
 	$init = function() {
 		$pkg.$init = function() {};
 		/* */ var $f, $c = false, $s = 0, $r; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
 		$r = time.$init(); /* */ $s = 1; case 1: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		$pkg.World = time.FixedZone("World", 53100);
 		/* */ } return; } if ($f === undefined) { $f = { $blk: $init }; } $f.$s = $s; $f.$r = $r; return $f;
 	};
 	$pkg.$init = $init;
