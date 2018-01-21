@@ -50,7 +50,7 @@ p {
 }
 </style>
 <h1 id="clock">Please turn on JavaScript to bring this clock to life</h1>
-<p id="explain">Fire, Air, Water and Earth are used in a cycle to provide four blocks of six hours each. This time is the same everywhere on earth. It was created to give a similar idea of time everywhere in the world without relying on morning/evening etc in one specific location.</p>
+<p id="explain">Fire, Air, Water and Earth are used in a cycle to provide four blocks of six hours each. This time is the same everywhere on earth. It was created to give a similar idea of time everywhere in the world without relying on morning/evening etc in one specific location. Refer to the little disk below for when each element occurs in your exact location (down is midnight, up is noon, left is morning, right is evening).</p>
 <div id="reference">
       <div class="element" id="fire">🔥</div>
       <div class="element" id="air">☁️</div>
@@ -58,7 +58,9 @@ p {
       <div class="element" id="earth">🌱</div>
 </div>
 <p>Note: this is a prototype, and probably a pretty big change will come soon. Keep an eye on this page to see the system develop!</p>
-<script><!-- navigator.geolocation.getCurrentPosition(moveDisk);
+<script><!--
+
+navigator.geolocation.getCurrentPosition(moveDisk);
 
 function moveDisk(position) {
   rot = (Math.floor(position.coords.longitude) + 45)%360

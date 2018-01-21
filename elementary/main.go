@@ -17,6 +17,5 @@ func timer(clock dom.Element) {
 
 func main() {
 	clock := dom.GetWindow().Document().GetElementByID("clock")
-	explain := dom.GetWindow().Document().GetElementByID("explain")
 	timer(clock)
 }
