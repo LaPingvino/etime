@@ -6,8 +6,68 @@ h1 {
 p {
 	font-size: 2em;
 }
+#reference {
+  display: none;
+  margin: auto;
+  border: 50px solid #0e2431;
+  border-radius: 50%;
+  border-bottom: 50px solid #FA5858;
+  border-left: 50px solid #848484;
+  border-top: 50px solid #0489B1;
+  border-right: 50px solid #088A4B;
+  width: 0;
+  height: 0;
+  z-index: 1001;
+  transform: rotate(45deg);
+}
+
+.element {
+  position: relative;
+  background: white;
+  border: 1px solid black;
+  border-radius: 50%;
+  transform: rotate(-45deg);
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
+
+#fire {
+  left: -10px;
+  top: 35px;
+}
+#air {
+  left: -60px;
+  top: -30px;
+}
+#water {
+  left: -10px;
+  top: -100px;
+}
+#earth {
+  left: 35px;
+  top: -75px;
+}
 </style>
 <h1 id="clock">Please turn on JavaScript to bring this clock to life</h1>
-<p id="explain">Here we explain how to interpret the time for you.</p>
+<p id="explain">Fire, Air, Water and Earth are used in a cycle to provide four blocks of six hours each. This time is the same everywhere on earth. It was created to give a similar idea of time everywhere in the world without relying on morning/evening etc in one specific location.</p>
+<div id="reference">
+      <div class="element" id="fire">🔥</div>
+      <div class="element" id="air">☁️</div>
+      <div class="element" id="water">💧</div>
+      <div class="element" id="earth">🌱</div>
+</div>
 <p>Note: this is a prototype, and probably a pretty big change will come soon. Keep an eye on this page to see the system develop!</p>
+<script><!-- navigator.geolocation.getCurrentPosition(moveDisk);
+
+function moveDisk(position) {
+  rot = (Math.floor(position.coords.longitude) + 45)%360
+  document.getElementById("reference").style.display='block';
+  document.getElementById("reference").style.transform='rotate('+rot+'deg)';
+  var all = document.getElementsByClassName('element');
+for (var i = 0; i < all.length; i++) {
+  all[i].style.transform='rotate(-'+rot+'deg)';
+}
+} // -->
+</script>
 <script src="elementary.js"></script>
