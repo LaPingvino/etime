@@ -6125,16 +6125,28 @@ $packages["github.com/lapingvino/etime"] = (function() {
 	};
 	Time.prototype.Element = function() { return this.$val.Element(); };
 	Element.prototype.String = function() {
-		var e, x;
+		var e;
 		e = this.$val;
-		return (x = new sliceType(["\xF0\x9F\x94\xA5 Fire", "\xF0\x9F\x8C\xAC Air", "\xF0\x9F\x8C\x8A Water", "\xF0\x9F\x8C\xB1 Earth"]), ((e < 0 || e >= x.$length) ? ($throwRuntimeError("index out of range"), undefined) : x.$array[x.$offset + e]));
+		return new Element(e).Emoji() + " " + new Element(e).Name();
 	};
 	$ptrType(Element).prototype.String = function() { return new Element(this.$get()).String(); };
+	Element.prototype.Name = function() {
+		var e, x;
+		e = this.$val;
+		return (x = new sliceType(["Fire", "Air", "Water", "Earth"]), ((e < 0 || e >= x.$length) ? ($throwRuntimeError("index out of range"), undefined) : x.$array[x.$offset + e]));
+	};
+	$ptrType(Element).prototype.Name = function() { return new Element(this.$get()).Name(); };
+	Element.prototype.Emoji = function() {
+		var e, x;
+		e = this.$val;
+		return (x = new sliceType(["\xF0\x9F\x94\xA5", "\xF0\x9F\x8C\xAC", "\xF0\x9F\x8C\x8A", "\xF0\x9F\x8C\xB1"]), ((e < 0 || e >= x.$length) ? ($throwRuntimeError("index out of range"), undefined) : x.$array[x.$offset + e]));
+	};
+	$ptrType(Element).prototype.Emoji = function() { return new Element(this.$get()).Emoji(); };
 	Now = function() {
 		return new Time.ptr($clone(time.Now(), time.Time));
 	};
 	$pkg.Now = Now;
-	Element.methods = [{prop: "String", name: "String", pkg: "", typ: $funcType([], [$String], false)}];
+	Element.methods = [{prop: "String", name: "String", pkg: "", typ: $funcType([], [$String], false)}, {prop: "Name", name: "Name", pkg: "", typ: $funcType([], [$String], false)}, {prop: "Emoji", name: "Emoji", pkg: "", typ: $funcType([], [$String], false)}];
 	Time.methods = [{prop: "String", name: "String", pkg: "", typ: $funcType([], [$String], false)}, {prop: "Element", name: "Element", pkg: "", typ: $funcType([], [Element], false)}];
 	Time.init("", [{prop: "Time", name: "Time", anonymous: true, exported: true, typ: time.Time, tag: ""}]);
 	$init = function() {
@@ -12543,13 +12555,13 @@ $packages["github.com/lapingvino/etime/elementary"] = (function() {
 		var _r, _r$1, _r$2, _r$3, _r$4, _r$5, clock, $s, $r;
 		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; _r = $f._r; _r$1 = $f._r$1; _r$2 = $f._r$2; _r$3 = $f._r$3; _r$4 = $f._r$4; _r$5 = $f._r$5; clock = $f.clock; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
 		clock = [clock];
-		_r = currentTime(); /* */ $s = 1; case 1: if($c) { $c = false; _r = _r.$blk(); } if (_r && _r.$blk !== undefined) { break s; }
+		_r = currentTime(false); /* */ $s = 1; case 1: if($c) { $c = false; _r = _r.$blk(); } if (_r && _r.$blk !== undefined) { break s; }
 		_r$1 = $clone($clone(time.Now(), time.Time).UTC(), time.Time).YearDay(); /* */ $s = 2; case 2: if($c) { $c = false; _r$1 = _r$1.$blk(); } if (_r$1 && _r$1.$blk !== undefined) { break s; }
 		_r$2 = $clone(etime.Now(), etime.Time).Element(); /* */ $s = 3; case 3: if($c) { $c = false; _r$2 = _r$2.$blk(); } if (_r$2 && _r$2.$blk !== undefined) { break s; }
 		_r$3 = strconv.Itoa(($imul(_r$1, 4)) - ((3 - ((_r$2 >> 0)) >> 0)) >> 0); /* */ $s = 4; case 4: if($c) { $c = false; _r$3 = _r$3.$blk(); } if (_r$3 && _r$3.$blk !== undefined) { break s; }
 		$r = clock[0].SetInnerHTML(_r + " <br /> @ quarterday " + _r$3); /* */ $s = 5; case 5: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
 		_r$4 = dom.GetWindow().Document(); /* */ $s = 6; case 6: if($c) { $c = false; _r$4 = _r$4.$blk(); } if (_r$4 && _r$4.$blk !== undefined) { break s; }
-		_r$5 = currentTime(); /* */ $s = 7; case 7: if($c) { $c = false; _r$5 = _r$5.$blk(); } if (_r$5 && _r$5.$blk !== undefined) { break s; }
+		_r$5 = currentTime(true); /* */ $s = 7; case 7: if($c) { $c = false; _r$5 = _r$5.$blk(); } if (_r$5 && _r$5.$blk !== undefined) { break s; }
 		$r = $assertType(_r$4, dom.HTMLDocument).SetTitle(_r$5 + " Elementary Time"); /* */ $s = 8; case 8: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
 		time.AfterFunc(new time.Duration(0, 10000000), (function(clock) { return function $b() {
 			var $s, $r;
@@ -12561,14 +12573,24 @@ $packages["github.com/lapingvino/etime/elementary"] = (function() {
 		$s = -1; return;
 		/* */ } return; } if ($f === undefined) { $f = { $blk: timer }; } $f._r = _r; $f._r$1 = _r$1; $f._r$2 = _r$2; $f._r$3 = _r$3; $f._r$4 = _r$4; $f._r$5 = _r$5; $f.clock = clock; $f.$s = $s; $f.$r = $r; return $f;
 	};
-	currentTime = function() {
-		var _r, _r$1, _r$2, $s, $r;
-		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; _r = $f._r; _r$1 = $f._r$1; _r$2 = $f._r$2; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
-		_r = $clone(etime.Now(), etime.Time).String(); /* */ $s = 1; case 1: if($c) { $c = false; _r = _r.$blk(); } if (_r && _r.$blk !== undefined) { break s; }
-		_r$1 = $clone(etime.Now(), etime.Time).Element(); /* */ $s = 2; case 2: if($c) { $c = false; _r$1 = _r$1.$blk(); } if (_r$1 && _r$1.$blk !== undefined) { break s; }
-		_r$2 = new etime.Element(_r$1).String(); /* */ $s = 3; case 3: if($c) { $c = false; _r$2 = _r$2.$blk(); } if (_r$2 && _r$2.$blk !== undefined) { break s; }
-		$s = -1; return _r + " " + _r$2;
-		/* */ } return; } if ($f === undefined) { $f = { $blk: currentTime }; } $f._r = _r; $f._r$1 = _r$1; $f._r$2 = _r$2; $f.$s = $s; $f.$r = $r; return $f;
+	currentTime = function(short$1) {
+		var _r, _r$1, _r$2, _r$3, _r$4, _r$5, short$1, $s, $r;
+		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; _r = $f._r; _r$1 = $f._r$1; _r$2 = $f._r$2; _r$3 = $f._r$3; _r$4 = $f._r$4; _r$5 = $f._r$5; short$1 = $f.short$1; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
+		/* */ if (short$1) { $s = 1; continue; }
+		/* */ $s = 2; continue;
+		/* if (short$1) { */ case 1:
+			_r = $clone(etime.Now(), etime.Time).Element(); /* */ $s = 4; case 4: if($c) { $c = false; _r = _r.$blk(); } if (_r && _r.$blk !== undefined) { break s; }
+			_r$1 = new etime.Element(_r).Emoji(); /* */ $s = 5; case 5: if($c) { $c = false; _r$1 = _r$1.$blk(); } if (_r$1 && _r$1.$blk !== undefined) { break s; }
+			_r$2 = $clone(etime.Now(), etime.Time).String(); /* */ $s = 6; case 6: if($c) { $c = false; _r$2 = _r$2.$blk(); } if (_r$2 && _r$2.$blk !== undefined) { break s; }
+			$s = -1; return _r$1 + " " + $substring(_r$2, 0, 5);
+		/* } else { */ case 2:
+			_r$3 = $clone(etime.Now(), etime.Time).String(); /* */ $s = 7; case 7: if($c) { $c = false; _r$3 = _r$3.$blk(); } if (_r$3 && _r$3.$blk !== undefined) { break s; }
+			_r$4 = $clone(etime.Now(), etime.Time).Element(); /* */ $s = 8; case 8: if($c) { $c = false; _r$4 = _r$4.$blk(); } if (_r$4 && _r$4.$blk !== undefined) { break s; }
+			_r$5 = new etime.Element(_r$4).String(); /* */ $s = 9; case 9: if($c) { $c = false; _r$5 = _r$5.$blk(); } if (_r$5 && _r$5.$blk !== undefined) { break s; }
+			$s = -1; return _r$3 + " " + _r$5;
+		/* } */ case 3:
+		$s = -1; return "";
+		/* */ } return; } if ($f === undefined) { $f = { $blk: currentTime }; } $f._r = _r; $f._r$1 = _r$1; $f._r$2 = _r$2; $f._r$3 = _r$3; $f._r$4 = _r$4; $f._r$5 = _r$5; $f.short$1 = short$1; $f.$s = $s; $f.$r = $r; return $f;
 	};
 	main = function() {
 		var _r, _r$1, clock, $s, $r;
