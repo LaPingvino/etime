@@ -8,9 +8,8 @@ import (
 )
 
 func timer(clock dom.Element) {
-	clock.SetInnerHTML(currentTime(false) + " <br /> @ quarterday " + 
-	strconv.Itoa(time.Now().UTC().YearDay()*4 -
-	(3 - int(etime.Now().Element()))))
+	clock.SetInnerHTML(currentTime(false) + " @ " + 
+	etime.Now().QuarterDay()
 	dom.GetWindow().Document().(dom.HTMLDocument).SetTitle(currentTime(true) + " Elementary Time")
 	time.AfterFunc(time.Millisecond*10, func() {timer(clock)})
 }
