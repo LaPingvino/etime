@@ -8,7 +8,7 @@ h1 {
 	font-size: 6em;
 }
 p {
-	font-size: 2em;
+	font-size: 1.5em;
 }
 #reference {
   display: none;
@@ -56,7 +56,9 @@ p {
 </head>
 <body>
 <h1 id="clock">Please turn on JavaScript to bring this clock to life</h1>
-<p id="explain">Fire, Air, Water and Earth are used in a cycle to provide four blocks of six hours each. This time is the same everywhere on earth. It was created to give a similar idea of time everywhere in the world without relying on morning/evening etc in one specific location. Refer to the little disk below for when each element occurs in your exact location (down is midnight, up is noon, left is morning, right is evening).</p>
+<p id="explain">Fire, Air, Water and Earth are used in a cycle to provide four blocks of six hours each. This time is the same everywhere on earth. It was created to give a similar idea of time everywhere in the world without relying on morning/evening etc in one specific location.</p>
+<p>After the @ you see the number of quarterdays after the Unix epoch mod 200 plus 1. This means that this number resets to 1 after every 200 quarterdays, or 50 days. You can use this to make sure that you plan a meeting on exactly the same day, and if you want to use it over a longer period of time you can use it in combination with normal calendar elements like adding a month reference.</p>
+<p>Refer to the little disk below for when each element occurs in your exact location (down is midnight, up is noon, left is morning, right is evening).</p>
 <div id="reference">
       <div class="element" id="fire">🔥</div>
       <div class="element" id="air">☁️</div>

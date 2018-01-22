@@ -6142,12 +6142,23 @@ $packages["github.com/lapingvino/etime"] = (function() {
 		return (x = new sliceType(["\xF0\x9F\x94\xA5", "\xF0\x9F\x8C\xAC", "\xF0\x9F\x8C\x8A", "\xF0\x9F\x8C\xB1"]), ((e < 0 || e >= x.$length) ? ($throwRuntimeError("index out of range"), undefined) : x.$array[x.$offset + e]));
 	};
 	$ptrType(Element).prototype.Emoji = function() { return new Element(this.$get()).Emoji(); };
+	Time.ptr.prototype.QuarterDay = function() {
+		var _r, daysSinceEpoch, modDay, t, x, $s, $r;
+		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; _r = $f._r; daysSinceEpoch = $f.daysSinceEpoch; modDay = $f.modDay; t = $f.t; x = $f.x; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
+		t = this;
+		daysSinceEpoch = $div64($clone(t.Time, time.Time).Unix(), new $Int64(0, 86400), false);
+		modDay = (((x = $div64(daysSinceEpoch, new $Int64(0, 50), true), x.$low + ((x.$high >> 31) * 4294967296)) >> 0));
+		_r = $clone(t, Time).Element(); /* */ $s = 1; case 1: if($c) { $c = false; _r = _r.$blk(); } if (_r && _r.$blk !== undefined) { break s; }
+		$s = -1; return (modDay - ((3 - ((_r >> 0)) >> 0)) >> 0) + 1 >> 0;
+		/* */ } return; } if ($f === undefined) { $f = { $blk: Time.ptr.prototype.QuarterDay }; } $f._r = _r; $f.daysSinceEpoch = daysSinceEpoch; $f.modDay = modDay; $f.t = t; $f.x = x; $f.$s = $s; $f.$r = $r; return $f;
+	};
+	Time.prototype.QuarterDay = function() { return this.$val.QuarterDay(); };
 	Now = function() {
 		return new Time.ptr($clone(time.Now(), time.Time));
 	};
 	$pkg.Now = Now;
 	Element.methods = [{prop: "String", name: "String", pkg: "", typ: $funcType([], [$String], false)}, {prop: "Name", name: "Name", pkg: "", typ: $funcType([], [$String], false)}, {prop: "Emoji", name: "Emoji", pkg: "", typ: $funcType([], [$String], false)}];
-	Time.methods = [{prop: "String", name: "String", pkg: "", typ: $funcType([], [$String], false)}, {prop: "Element", name: "Element", pkg: "", typ: $funcType([], [Element], false)}];
+	Time.methods = [{prop: "String", name: "String", pkg: "", typ: $funcType([], [$String], false)}, {prop: "Element", name: "Element", pkg: "", typ: $funcType([], [Element], false)}, {prop: "QuarterDay", name: "QuarterDay", pkg: "", typ: $funcType([], [$Int], false)}];
 	Time.init("", [{prop: "Time", name: "Time", anonymous: true, exported: true, typ: time.Time, tag: ""}]);
 	$init = function() {
 		$pkg.$init = function() {};
@@ -12552,17 +12563,14 @@ $packages["github.com/lapingvino/etime/elementary"] = (function() {
 	strconv = $packages["strconv"];
 	time = $packages["time"];
 	timer = function(clock) {
-		var _r, _r$1, _r$2, _r$3, _r$4, _r$5, clock, $s, $r;
-		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; _r = $f._r; _r$1 = $f._r$1; _r$2 = $f._r$2; _r$3 = $f._r$3; _r$4 = $f._r$4; _r$5 = $f._r$5; clock = $f.clock; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
+		var _r, _r$1, _r$2, clock, $s, $r;
+		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; _r = $f._r; _r$1 = $f._r$1; _r$2 = $f._r$2; clock = $f.clock; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
 		clock = [clock];
 		_r = currentTime(false); /* */ $s = 1; case 1: if($c) { $c = false; _r = _r.$blk(); } if (_r && _r.$blk !== undefined) { break s; }
-		_r$1 = $clone($clone(time.Now(), time.Time).UTC(), time.Time).YearDay(); /* */ $s = 2; case 2: if($c) { $c = false; _r$1 = _r$1.$blk(); } if (_r$1 && _r$1.$blk !== undefined) { break s; }
-		_r$2 = $clone(etime.Now(), etime.Time).Element(); /* */ $s = 3; case 3: if($c) { $c = false; _r$2 = _r$2.$blk(); } if (_r$2 && _r$2.$blk !== undefined) { break s; }
-		_r$3 = strconv.Itoa(($imul(_r$1, 4)) - ((3 - ((_r$2 >> 0)) >> 0)) >> 0); /* */ $s = 4; case 4: if($c) { $c = false; _r$3 = _r$3.$blk(); } if (_r$3 && _r$3.$blk !== undefined) { break s; }
-		$r = clock[0].SetInnerHTML(_r + " <br /> @ quarterday " + _r$3); /* */ $s = 5; case 5: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
-		_r$4 = dom.GetWindow().Document(); /* */ $s = 6; case 6: if($c) { $c = false; _r$4 = _r$4.$blk(); } if (_r$4 && _r$4.$blk !== undefined) { break s; }
-		_r$5 = currentTime(true); /* */ $s = 7; case 7: if($c) { $c = false; _r$5 = _r$5.$blk(); } if (_r$5 && _r$5.$blk !== undefined) { break s; }
-		$r = $assertType(_r$4, dom.HTMLDocument).SetTitle(_r$5 + " Elementary Time"); /* */ $s = 8; case 8: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		$r = clock[0].SetInnerHTML(_r); /* */ $s = 2; case 2: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
+		_r$1 = dom.GetWindow().Document(); /* */ $s = 3; case 3: if($c) { $c = false; _r$1 = _r$1.$blk(); } if (_r$1 && _r$1.$blk !== undefined) { break s; }
+		_r$2 = currentTime(true); /* */ $s = 4; case 4: if($c) { $c = false; _r$2 = _r$2.$blk(); } if (_r$2 && _r$2.$blk !== undefined) { break s; }
+		$r = $assertType(_r$1, dom.HTMLDocument).SetTitle(_r$2 + " Elementary Time"); /* */ $s = 5; case 5: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
 		time.AfterFunc(new time.Duration(0, 10000000), (function(clock) { return function $b() {
 			var $s, $r;
 			/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
@@ -12571,11 +12579,11 @@ $packages["github.com/lapingvino/etime/elementary"] = (function() {
 			/* */ } return; } if ($f === undefined) { $f = { $blk: $b }; } $f.$s = $s; $f.$r = $r; return $f;
 		}; })(clock));
 		$s = -1; return;
-		/* */ } return; } if ($f === undefined) { $f = { $blk: timer }; } $f._r = _r; $f._r$1 = _r$1; $f._r$2 = _r$2; $f._r$3 = _r$3; $f._r$4 = _r$4; $f._r$5 = _r$5; $f.clock = clock; $f.$s = $s; $f.$r = $r; return $f;
+		/* */ } return; } if ($f === undefined) { $f = { $blk: timer }; } $f._r = _r; $f._r$1 = _r$1; $f._r$2 = _r$2; $f.clock = clock; $f.$s = $s; $f.$r = $r; return $f;
 	};
 	currentTime = function(short$1) {
-		var _r, _r$1, _r$2, _r$3, _r$4, _r$5, _r$6, _r$7, short$1, $s, $r;
-		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; _r = $f._r; _r$1 = $f._r$1; _r$2 = $f._r$2; _r$3 = $f._r$3; _r$4 = $f._r$4; _r$5 = $f._r$5; _r$6 = $f._r$6; _r$7 = $f._r$7; short$1 = $f.short$1; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
+		var _r, _r$1, _r$10, _r$11, _r$2, _r$3, _r$4, _r$5, _r$6, _r$7, _r$8, _r$9, short$1, $s, $r;
+		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; _r = $f._r; _r$1 = $f._r$1; _r$10 = $f._r$10; _r$11 = $f._r$11; _r$2 = $f._r$2; _r$3 = $f._r$3; _r$4 = $f._r$4; _r$5 = $f._r$5; _r$6 = $f._r$6; _r$7 = $f._r$7; _r$8 = $f._r$8; _r$9 = $f._r$9; short$1 = $f.short$1; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
 		/* */ if (short$1) { $s = 1; continue; }
 		/* */ $s = 2; continue;
 		/* if (short$1) { */ case 1:
@@ -12584,15 +12592,19 @@ $packages["github.com/lapingvino/etime/elementary"] = (function() {
 			_r$2 = $clone(etime.Now(), etime.Time).String(); /* */ $s = 6; case 6: if($c) { $c = false; _r$2 = _r$2.$blk(); } if (_r$2 && _r$2.$blk !== undefined) { break s; }
 			_r$3 = $clone(etime.Now(), etime.Time).Element(); /* */ $s = 7; case 7: if($c) { $c = false; _r$3 = _r$3.$blk(); } if (_r$3 && _r$3.$blk !== undefined) { break s; }
 			_r$4 = new etime.Element(_r$3).Name(); /* */ $s = 8; case 8: if($c) { $c = false; _r$4 = _r$4.$blk(); } if (_r$4 && _r$4.$blk !== undefined) { break s; }
-			$s = -1; return _r$1 + " " + $substring(_r$2, 0, 5) + " " + $substring(_r$4, 0, 1);
+			_r$5 = $clone(etime.Now(), etime.Time).QuarterDay(); /* */ $s = 9; case 9: if($c) { $c = false; _r$5 = _r$5.$blk(); } if (_r$5 && _r$5.$blk !== undefined) { break s; }
+			_r$6 = strconv.Itoa(_r$5); /* */ $s = 10; case 10: if($c) { $c = false; _r$6 = _r$6.$blk(); } if (_r$6 && _r$6.$blk !== undefined) { break s; }
+			$s = -1; return _r$1 + " " + $substring(_r$2, 0, 5) + " " + $substring(_r$4, 0, 1) + " @ " + _r$6;
 		/* } else { */ case 2:
-			_r$5 = $clone(etime.Now(), etime.Time).String(); /* */ $s = 9; case 9: if($c) { $c = false; _r$5 = _r$5.$blk(); } if (_r$5 && _r$5.$blk !== undefined) { break s; }
-			_r$6 = $clone(etime.Now(), etime.Time).Element(); /* */ $s = 10; case 10: if($c) { $c = false; _r$6 = _r$6.$blk(); } if (_r$6 && _r$6.$blk !== undefined) { break s; }
-			_r$7 = new etime.Element(_r$6).String(); /* */ $s = 11; case 11: if($c) { $c = false; _r$7 = _r$7.$blk(); } if (_r$7 && _r$7.$blk !== undefined) { break s; }
-			$s = -1; return _r$5 + " " + _r$7;
+			_r$7 = $clone(etime.Now(), etime.Time).String(); /* */ $s = 11; case 11: if($c) { $c = false; _r$7 = _r$7.$blk(); } if (_r$7 && _r$7.$blk !== undefined) { break s; }
+			_r$8 = $clone(etime.Now(), etime.Time).Element(); /* */ $s = 12; case 12: if($c) { $c = false; _r$8 = _r$8.$blk(); } if (_r$8 && _r$8.$blk !== undefined) { break s; }
+			_r$9 = new etime.Element(_r$8).String(); /* */ $s = 13; case 13: if($c) { $c = false; _r$9 = _r$9.$blk(); } if (_r$9 && _r$9.$blk !== undefined) { break s; }
+			_r$10 = $clone(etime.Now(), etime.Time).QuarterDay(); /* */ $s = 14; case 14: if($c) { $c = false; _r$10 = _r$10.$blk(); } if (_r$10 && _r$10.$blk !== undefined) { break s; }
+			_r$11 = strconv.Itoa(_r$10); /* */ $s = 15; case 15: if($c) { $c = false; _r$11 = _r$11.$blk(); } if (_r$11 && _r$11.$blk !== undefined) { break s; }
+			$s = -1; return _r$7 + " " + _r$9 + " @ " + _r$11;
 		/* } */ case 3:
 		$s = -1; return "";
-		/* */ } return; } if ($f === undefined) { $f = { $blk: currentTime }; } $f._r = _r; $f._r$1 = _r$1; $f._r$2 = _r$2; $f._r$3 = _r$3; $f._r$4 = _r$4; $f._r$5 = _r$5; $f._r$6 = _r$6; $f._r$7 = _r$7; $f.short$1 = short$1; $f.$s = $s; $f.$r = $r; return $f;
+		/* */ } return; } if ($f === undefined) { $f = { $blk: currentTime }; } $f._r = _r; $f._r$1 = _r$1; $f._r$10 = _r$10; $f._r$11 = _r$11; $f._r$2 = _r$2; $f._r$3 = _r$3; $f._r$4 = _r$4; $f._r$5 = _r$5; $f._r$6 = _r$6; $f._r$7 = _r$7; $f._r$8 = _r$8; $f._r$9 = _r$9; $f.short$1 = short$1; $f.$s = $s; $f.$r = $r; return $f;
 	};
 	main = function() {
 		var _r, _r$1, clock, $s, $r;

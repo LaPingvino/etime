@@ -27,32 +27,21 @@ func (t Time) Element() Element {
 }
 
 func (e Element) String() string {
-	return []string{"\U0001f525 Fire", "\U0001f32c Air", "\U0001f30a Water", "\U0001F331 Earth"}[e]
+	return e.Emoji() + " " + e.Name()
 }
 
-func Descriptive(h string) string {
-	local, err := time.LoadLocation("Local")
-	if err != nil {
-		return "[problem loading location]"
-	}
-	r, err := time.ParseInLocation("15", h, local)
-	if err != nil {
-		return "[problem parsing reference hour]"
-	}
-	t := Time{r}
-	seg := t.Time.UTC().Hour() % 6
-	var segs string
-	switch seg {
-	case 0,1:
-		segs = "early"
-	case 2,3:
-		segs = "mid"
-	case 4,5:
-		segs = "late"
-	default:
-		segs = "[there is a bug in the software]"
-	}
-	return segs + " " + t.Element().String()
+func (e Element) Name() string {
+	return []string{"Fire", "Air", "Water", "Earth"}[e]
+}
+
+func (e Element) Emoji() string {
+	return []string{"\U0001f525", "\U0001f32c", "\U0001f30a", "\U0001F331"}[e]
+}
+
+func (t Time) QuarterDay() int {
+	daysSinceEpoch := t.Time.Unix() / (60 * 60 * 24)
+	modDay := int(daysSinceEpoch%50)
+	return modDay - (3-int(t.Element())) + 1
 }
 
 func Now() Time {

@@ -8,18 +8,16 @@ import (
 )
 
 func timer(clock dom.Element) {
-	clock.SetInnerHTML(currentTime(false) + " <br /> @ quarterday " + 
-	strconv.Itoa(time.Now().UTC().YearDay()*4 -
-	(3 - int(etime.Now().Element()))))
+	clock.SetInnerHTML(currentTime(false))
 	dom.GetWindow().Document().(dom.HTMLDocument).SetTitle(currentTime(true) + " Elementary Time")
 	time.AfterFunc(time.Millisecond*10, func() {timer(clock)})
 }
 
 func currentTime(short bool) string {
 	if short {
-		return etime.Now().Element().Emoji() + " " + etime.Now().String()[:5] + " " + etime.Now().Element().Name()[:1]
+		return etime.Now().Element().Emoji() + " " + etime.Now().String()[:5] + " " + etime.Now().Element().Name()[:1] + " @ " + strconv.Itoa(etime.Now().QuarterDay())
 	} else {
-		return etime.Now().String() + " " + etime.Now().Element().String()
+		return etime.Now().String() + " " + etime.Now().Element().String() + " @ " + strconv.Itoa(etime.Now().QuarterDay())
 	}
 }
 
