@@ -17,7 +17,7 @@ func timer(clock dom.Element) {
 
 func currentTime(short bool) string {
 	if short {
-		return etime.Now().Element().Emoji() + " " + etime.Now().String()[:5]
+		return etime.Now().Element().Emoji() + " " + etime.Now().String()[:5] + " " + etime.Now().Element().String()[:1]
 	} else {
 		return etime.Now().String() + " " + etime.Now().Element().String()
 	}
