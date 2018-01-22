@@ -12583,7 +12583,7 @@ $packages["github.com/lapingvino/etime/elementary"] = (function() {
 			_r$1 = new etime.Element(_r).Emoji(); /* */ $s = 5; case 5: if($c) { $c = false; _r$1 = _r$1.$blk(); } if (_r$1 && _r$1.$blk !== undefined) { break s; }
 			_r$2 = $clone(etime.Now(), etime.Time).String(); /* */ $s = 6; case 6: if($c) { $c = false; _r$2 = _r$2.$blk(); } if (_r$2 && _r$2.$blk !== undefined) { break s; }
 			_r$3 = $clone(etime.Now(), etime.Time).Element(); /* */ $s = 7; case 7: if($c) { $c = false; _r$3 = _r$3.$blk(); } if (_r$3 && _r$3.$blk !== undefined) { break s; }
-			_r$4 = new etime.Element(_r$3).String(); /* */ $s = 8; case 8: if($c) { $c = false; _r$4 = _r$4.$blk(); } if (_r$4 && _r$4.$blk !== undefined) { break s; }
+			_r$4 = new etime.Element(_r$3).Name(); /* */ $s = 8; case 8: if($c) { $c = false; _r$4 = _r$4.$blk(); } if (_r$4 && _r$4.$blk !== undefined) { break s; }
 			$s = -1; return _r$1 + " " + $substring(_r$2, 0, 5) + " " + $substring(_r$4, 0, 1);
 		/* } else { */ case 2:
 			_r$5 = $clone(etime.Now(), etime.Time).String(); /* */ $s = 9; case 9: if($c) { $c = false; _r$5 = _r$5.$blk(); } if (_r$5 && _r$5.$blk !== undefined) { break s; }
