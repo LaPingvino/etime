@@ -31,7 +31,7 @@ func (e Element) String() string {
 }
 
 func (e Element) Name() string {
-	return []string{"Fire", "Air", "Water", "Earth"}[e]
+	return []string{"Fogo", "Ar", "Água", "Terra"}[e]
 }
 
 func (e Element) Emoji() string {
