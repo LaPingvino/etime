@@ -41,7 +41,7 @@ func (e Element) Emoji() string {
 func (t Time) QuarterDay() int {
 	daysSinceEpoch := t.Time.Unix() / (60 * 60 * 24)
 	modDay := int(daysSinceEpoch%50)
-	return modDay + int(t.Element()) + 1
+	return (modDay*4) + int(t.Element()) + 1
 }
 
 func Now() Time {
