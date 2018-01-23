@@ -12563,15 +12563,15 @@ $packages["github.com/lapingvino/etime/elementary"] = (function() {
 	strconv = $packages["strconv"];
 	time = $packages["time"];
 	timer = function(clock) {
-		var _r, _r$1, _r$2, clock, $s, $r;
-		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; _r = $f._r; _r$1 = $f._r$1; _r$2 = $f._r$2; clock = $f.clock; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
+		var _r, _r$1, _r$2, clock, x, $s, $r;
+		/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; _r = $f._r; _r$1 = $f._r$1; _r$2 = $f._r$2; clock = $f.clock; x = $f.x; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
 		clock = [clock];
 		_r = currentTime(false); /* */ $s = 1; case 1: if($c) { $c = false; _r = _r.$blk(); } if (_r && _r.$blk !== undefined) { break s; }
 		$r = clock[0].SetInnerHTML(_r); /* */ $s = 2; case 2: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
 		_r$1 = dom.GetWindow().Document(); /* */ $s = 3; case 3: if($c) { $c = false; _r$1 = _r$1.$blk(); } if (_r$1 && _r$1.$blk !== undefined) { break s; }
 		_r$2 = currentTime(true); /* */ $s = 4; case 4: if($c) { $c = false; _r$2 = _r$2.$blk(); } if (_r$2 && _r$2.$blk !== undefined) { break s; }
 		$r = $assertType(_r$1, dom.HTMLDocument).SetTitle(_r$2 + " Elementary Time"); /* */ $s = 5; case 5: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
-		time.AfterFunc(new time.Duration(0, 10000000), (function(clock) { return function $b() {
+		time.AfterFunc((x = (new time.Duration(0, $clone(time.Now(), time.Time).Nanosecond())), new time.Duration(0 - x.$high, 1000000000 - x.$low)), (function(clock) { return function $b() {
 			var $s, $r;
 			/* */ $s = 0; var $f, $c = false; if (this !== undefined && this.$blk !== undefined) { $f = this; $c = true; $s = $f.$s; $r = $f.$r; } s: while (true) { switch ($s) { case 0:
 			$r = timer(clock[0]); /* */ $s = 1; case 1: if($c) { $c = false; $r = $r.$blk(); } if ($r && $r.$blk !== undefined) { break s; }
@@ -12579,7 +12579,7 @@ $packages["github.com/lapingvino/etime/elementary"] = (function() {
 			/* */ } return; } if ($f === undefined) { $f = { $blk: $b }; } $f.$s = $s; $f.$r = $r; return $f;
 		}; })(clock));
 		$s = -1; return;
-		/* */ } return; } if ($f === undefined) { $f = { $blk: timer }; } $f._r = _r; $f._r$1 = _r$1; $f._r$2 = _r$2; $f.clock = clock; $f.$s = $s; $f.$r = $r; return $f;
+		/* */ } return; } if ($f === undefined) { $f = { $blk: timer }; } $f._r = _r; $f._r$1 = _r$1; $f._r$2 = _r$2; $f.clock = clock; $f.x = x; $f.$s = $s; $f.$r = $r; return $f;
 	};
 	currentTime = function(short$1) {
 		var _r, _r$1, _r$10, _r$11, _r$2, _r$3, _r$4, _r$5, _r$6, _r$7, _r$8, _r$9, short$1, $s, $r;
