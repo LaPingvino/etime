@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Elementary Time</title>
+<title>Hora Elementar</title>
 <style>
 h1 {
 	font-size: 6em;
@@ -56,16 +56,16 @@ p {
 </head>
 <body>
 <h1 id="clock">Please turn on JavaScript to bring this clock to life</h1>
-<p id="explain">Fire, Air, Water and Earth are used in a cycle to provide four blocks of six hours each. This time is the same everywhere on earth. It was created to give a similar idea of time everywhere in the world without relying on morning/evening etc in one specific location.</p>
-<p>After the @ you see the number of quarterdays after the Unix epoch mod 200 plus 1. This means that this number resets to 1 after every 200 quarterdays, or 50 days. You can use this to make sure that you plan a meeting on exactly the same day, and if you want to use it over a longer period of time you can use it in combination with normal calendar elements like adding a month reference.</p>
-<p>Refer to the little disk below for when each element occurs in your exact location (down is midnight, up is noon, left is morning, right is evening).</p>
+<p id="explain">Fogo, Ar, Água e Terra são usados em um ciclo para providenciar quatro blocos de seis horas cada. Esse horário é o mesmo em todos os lugares do mundo. Foi criado para dar uma ideia similar de tempo no mundo todo sem se baseiar no conceito de dia/noite de cada região.</p>
+<p>Depois do @, está o número do quartia (o quarto do dia) baseado no sistema ''Unix epoch mod 200 plus 1''. Significa que esse número se reinicia a cada 200 quartias, ou 50 dias. Você pode usar a Hora Elementar para se certificar que a reunião vai ocorrer na data e horário certo, por exemplo. E se você quiser usar o sistema a longo praso, você pode combiná-lo com o calendário normal adicionando uma referência mensal.</p>
+<p>O disco abaixo é referente ao seu local atual, e muda de acordo com a sua localização geográfica. Imagine que você está de pé em cima do disco, em baixo é meia-noite, em cima é meio-dia, esquerda é manhã e direita é a tarde.</p>
 <div id="reference">
       <div class="element" id="fire">🔥</div>
       <div class="element" id="air">☁️</div>
       <div class="element" id="water">💧</div>
       <div class="element" id="earth">🌱</div>
 </div>
-<p>Note: this is a prototype, and probably a pretty big change will come soon. Keep an eye on this page to see the system develop!</p>
+<p>Nota: esse é apenas um protótipo, e provavelmente uma grande mudança está por vir. Fiquem atentos nessa página para acompanhar as mudanças!</p>
 <script><!--
 
 navigator.geolocation.getCurrentPosition(moveDisk);
