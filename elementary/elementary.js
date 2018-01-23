@@ -6149,7 +6149,7 @@ $packages["github.com/lapingvino/etime"] = (function() {
 		daysSinceEpoch = $div64($clone(t.Time, time.Time).Unix(), new $Int64(0, 86400), false);
 		modDay = (((x = $div64(daysSinceEpoch, new $Int64(0, 50), true), x.$low + ((x.$high >> 31) * 4294967296)) >> 0));
 		_r = $clone(t, Time).Element(); /* */ $s = 1; case 1: if($c) { $c = false; _r = _r.$blk(); } if (_r && _r.$blk !== undefined) { break s; }
-		$s = -1; return (modDay - ((3 - ((_r >> 0)) >> 0)) >> 0) + 1 >> 0;
+		$s = -1; return (modDay + ((_r >> 0)) >> 0) + 1 >> 0;
 		/* */ } return; } if ($f === undefined) { $f = { $blk: Time.ptr.prototype.QuarterDay }; } $f._r = _r; $f.daysSinceEpoch = daysSinceEpoch; $f.modDay = modDay; $f.t = t; $f.x = x; $f.$s = $s; $f.$r = $r; return $f;
 	};
 	Time.prototype.QuarterDay = function() { return this.$val.QuarterDay(); };
