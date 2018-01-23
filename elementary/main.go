@@ -3,13 +3,13 @@ package main
 import (
 	"strconv"
 	"time"
-	"github.com/lapingvino/etime"
+	"github.com/brualemar/etime"
 	"honnef.co/go/js/dom"
 )
 
 func timer(clock dom.Element) {
 	clock.SetInnerHTML(currentTime(false))
-	dom.GetWindow().Document().(dom.HTMLDocument).SetTitle(currentTime(true) + " Elementary Time")
+	dom.GetWindow().Document().(dom.HTMLDocument).SetTitle(currentTime(true) + " Hora Elementar")
 	time.AfterFunc(time.Second - time.Duration(time.Now().Nanosecond()), func() {timer(clock)})
 }
 
