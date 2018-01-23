@@ -10,7 +10,7 @@ import (
 func timer(clock dom.Element) {
 	clock.SetInnerHTML(currentTime(false))
 	dom.GetWindow().Document().(dom.HTMLDocument).SetTitle(currentTime(true) + " Elementary Time")
-	time.AfterFunc(time.Millisecond*10, func() {timer(clock)})
+	time.AfterFunc(time.Second - time.Duration(time.Now().Nanosecond()), func() {timer(clock)})
 }
 
 func currentTime(short bool) string {
